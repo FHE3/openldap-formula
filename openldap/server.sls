@@ -42,6 +42,8 @@ slapd_service:
     - contents_pillar: openldap:includes:{{file}}
     - require:
       - file: /etc/ldap/include
+    - require_in:
+      - file: /etc/ldap/include
 {%- endfor %}
 
 {%- if salt['pillar.get']('openldap:tls', False) %}
