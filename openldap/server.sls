@@ -40,7 +40,7 @@ slapd_service:
 /etc/ldap/include/{{file}}:
   file.managed:
     - contents_pillar: openldap:includes:{{file}}
-    - require_in:
+    - require:
       - file: /etc/ldap/include
 {%- endfor %}
 
